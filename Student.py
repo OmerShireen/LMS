@@ -3,22 +3,22 @@ from Course import Course
 from CourseList import CourseList
 
 class Student(Person):
-    def __init__(self, name: str, age: int, email: str, phone_no: int, rollNo: str, semester:int, courses=None):
+    def __init__(self, name, age, email, phone_no, rollNo, semester, courses=None):
         super().__init__(name, age, email, phone_no)
         self._rollNo = rollNo
         self._semester = semester
 
-    if courses is None:
-        self._courses = CourseList()
-    elif isinstance(courses, CourseList):
-        self._courses = courses
-    elif isinstance(courses, list):
-        cl = CourseList()
-        for c in course:
-            c1.add(c)
-        self._courses = cl
-    else:
-        raise TypeError("courses must be CourseList, list of Course, or None")
+        if courses is None:
+            self._courses = CourseList()
+        elif isinstance(courses, CourseList):
+            self._courses = courses
+        elif isinstance(courses, list):
+            cl = CourseList()
+            for c in course:
+                c1.add(c)
+            self._courses = cl
+        else:
+            raise TypeError("courses must be CourseList, list of Course, or None")
 
     @property
     def rollNo(self):
@@ -48,5 +48,7 @@ class Student(Person):
             raise TypeError("courses must be CourseList")
 
     def __str__(self):
-        return f" {self._name} | Seat No: {self._seatNo} | Semester: {self._semester}\n"
-        f"Courses:\n{self._courses}"                   
+        return (
+            f" {self._name} | Roll No: {self._rollNo} | Semester: {self._semester}\n"
+            f"Courses:\n{self._courses}"                   
+        )
