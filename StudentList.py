@@ -1,3 +1,4 @@
+from Student import Student
 class StudentList:
     def __init__(self):
         self._student_list =[]
@@ -24,7 +25,7 @@ class StudentList:
         return[s for s in self._student_list if s.name.lower() == name.lower()]
 
     def search_by_seat_no(self, seat_no: str):
-        return[s fors in self._student_list if s.seat_no == seat_no]
+        return[s for s in self._student_list if s.seat_no == seat_no]
 
     def __str__(self):
         if not self._student_list:
