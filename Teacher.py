@@ -1,13 +1,13 @@
 from Person import Person
+from Courselist import CourseList
 from Course import Course
-from CourseList import CourseList
 
 class Teacher(Person):
-    def __init__(self, name: str, age: int, email: str, phone_no: int, designation: str, assigned_courses= None):
-        super().__init__(self, name, age, email, phone_no):
+    def __init__(self, name, age, email, phone_no, designation, assigned_courses=None):
+        super().__init__(name, age, email, phone_no)
         self._designation = designation
 
-        if assigned_courses = None:
+        if assigned_courses is None:
             self._assigned_courses = CourseList()
         elif isinstance(assigned_courses, CourseList):
             self._assigned_courses = assigned_courses
@@ -17,7 +17,7 @@ class Teacher(Person):
                 cl.add(c)
             self._assigned_courses = cl
         else:
-            raise TypeError("assigned courses must be CourseList, List of Course, or None")
+            raise TypeError("assigned_courses must be CourseList, list of Course, or None")
 
     @property
     def designation(self):
@@ -40,12 +40,6 @@ class Teacher(Person):
 
     def __str__(self):
         return (
-            f"Teacher: {self.name}  | Designation: {self._designation}\n"
+            f"Teacher: {self.name} | Designation: {self._designation}\n"
             f"Assigned Courses:\n{self._assigned_courses}"
-            )        
-
-
-
-
-
-
+        )
