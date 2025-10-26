@@ -5,10 +5,10 @@ class Course:
 
     @property
     def courseName(self):
-        return self._course_name
+        return self._courseName
 
     @courseName.setter
-    def course_name(self, new):
+    def courseName(self, new):
         self._courseName = new
 
     @property
