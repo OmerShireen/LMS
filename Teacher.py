@@ -4,10 +4,10 @@ from CourseList import CourseList
 
 class Teacher(Person):
     def __init__(self, name: str, age: int, email: str, phone_no: int, designation: str, assigned_courses= None):
-        super().__init__(self, name, age, email, phone_no):
+        super().__init__(name, age, email, phone_no)
         self._designation = designation
 
-        if assigned_courses = None:
+        if assigned_courses is None:
             self._assigned_courses = CourseList()
         elif isinstance(assigned_courses, CourseList):
             self._assigned_courses = assigned_courses
@@ -23,17 +23,17 @@ class Teacher(Person):
     def teachers_list(self):
         return self._teachers_list
 
-    def add(self, teacher: Teacher):
+    def add(self, teacher):
         self._teachers_list = self._teachers_list + [teacher]
 
-    def add_at(self, index: int, teacher: Teacher):
+    def add_at(self, index: int, teacher):
         if index < 0:
             index = 0
         if index > len(self._teachers_list):
             index = len(self._teachers_list)
         self._teachers_list = self._teachers_list[:index] + [teacher] + self._teachers_list[index:]
 
-    def remove(self, teacher: Teacher):
+    def remove(self, teacher):
         self._teachers_list = [t for t in self._teachers_list if t is not teacher]
 
     def remove_at(self, index: int):
